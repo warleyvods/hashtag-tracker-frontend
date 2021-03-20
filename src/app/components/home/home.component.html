@@ -1,0 +1,15 @@
+<div class="home-container">
+    <main>
+        <img src="assets/twitter-logo.png" alt="logo">
+        <div class="search-box">
+            <form #form="ngForm" (ngSubmit)="search(form)">
+                <app-search rightIcon="false"></app-search>
+            </form>
+        </div>
+
+        <div class="g-buttons">
+            <button type="button" (click)="search(form)">Location Hashtags</button>
+        </div>
+    </main>
+
+</div>
