@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {SearchService} from '../../service/search.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-result',
@@ -7,42 +9,36 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
-  constructor() { }
+  term;
+  subs: Subscription[] = [];
+  markers: Marker[] = [];
 
-  title = 'My first AGM project';
+
+  constructor(private searchService: SearchService) { }
+
+  title = 'Foram realizadas 100 Buscas...'  ;
   lat = -16.678418;
   lng = -49.809007;
 
 
-  markers: marker[] = [
-    {
-      lat: -23.55,
-      lng: -46.6333,
-      label: 'A',
-      draggable: true
-    },
-    {
-      lat: -16.68737425,
-      lng: -49.24084953,
-      label: 'B',
-      draggable: false
-    },
-    {
-      lat: -16.7133,
-      lng: -49.29355,
-      label: 'C',
-      draggable: true
-    }
-  ];
-
   ngOnInit(): void {
+    const { term } = history.state;
+    console.log('Dados: ' + term);
+    this.term = term;
+
+    if (term != null) {
+      this.searchService.findHashtagsLocation(term).subscribe( (data) => {
+        this.markers = data;
+        console.log(this.markers);
+      });
+    }
   }
 }
 
 
-interface marker {
+interface Marker {
   lat: number;
   lng: number;
-  label?: string;
-  draggable: boolean;
+  // label?: string;
+  draggable: false;
 }
