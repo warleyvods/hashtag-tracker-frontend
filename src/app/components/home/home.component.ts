@@ -11,13 +11,10 @@ import {SearchService} from '../../service/search.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private httpClient: HttpClient, private serachService: SearchService) {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
-    // this.serachService.findHashtagsLocation().subscribe(data => {
-    //   console.log(data);
-    // });
   }
 
   search(form: NgForm): void {

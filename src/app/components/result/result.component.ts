@@ -9,17 +9,17 @@ import {Subscription} from 'rxjs';
 })
 export class ResultComponent implements OnInit {
 
+  title = 'Foram realizadas 100 Buscas...'  ;
+
   term;
   subs: Subscription[] = [];
   markers: Marker[] = [];
 
-
-  constructor(private searchService: SearchService) { }
-
-  title = 'Foram realizadas 100 Buscas...'  ;
   lat = -16.678418;
   lng = -49.809007;
+  zoom = 5;
 
+  constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
     const { term } = history.state;
@@ -37,8 +37,8 @@ export class ResultComponent implements OnInit {
 
 
 interface Marker {
-  lat: number;
-  lng: number;
-  // label?: string;
+  latitude: number;
+  longitude: number;
+  label?: string;
   draggable: false;
 }

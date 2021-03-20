@@ -10,7 +10,7 @@ import { ResultComponent } from './components/result/result.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-// import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     SearchComponent
   ],
   imports: [
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyA00wZHRtem0XZeLy4F6P4mmUaSXN5Tkm8'
-    // }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA00wZHRtem0XZeLy4F6P4mmUaSXN5Tkm8'
+    }),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -30,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     FormsModule,
     HttpClientModule,
-    // AgmCoreModule
+    AgmCoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
