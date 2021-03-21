@@ -1,23 +1,30 @@
-<h1>{{ title }}</h1>
-<p>{{subtitle}}</p>
+<mat-card>
+  <br>
+  <h1>{{ title }}</h1>
+  <p>FAQ: <strong>Why my Search not appears on the map?</strong> <br>- R: if your search did not appear on the map, it means that out of 100
+    direct queries about this hashtag none of the users authorized in the App that they wished to send their current
+    geolocation information on Tweet. <br>Please, try another hashtag. </p>
+  <p><strong>The status I read does not match the informed feeling.</strong> <br>- R: The Sentiment Analyzer works best when searching for English texts.
+    If it is in another language, the results may not be as accurate.</p>
+</mat-card>
 
-<agm-map  [latitude]="lat"
-          [longitude]="lng"
-          [zoom]="zoom">
+<mat-card>
+  <div>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [maxZoom]="8">
 
-    <agm-marker
-      *ngFor="let m of markers; let i = index"
-      [latitude]="m.latitude"
-      [longitude]="m.longitude"
+      <agm-marker
+        *ngFor="let m of markers; let i = index"
+        [latitude]="m.latitude"
+        [longitude]="m.longitude"
+        [markerDraggable]="m.draggable"
+      >
 
-      [markerDraggable]="m.draggable"
-    >
+        <agm-info-window>
+          <strong>{{ m.label }}</strong>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
 
-  <agm-info-window>
-    <strong>{{ m.label }}</strong>
-  </agm-info-window>
+</mat-card>
 
-</agm-marker>
-
-
-</agm-map>
