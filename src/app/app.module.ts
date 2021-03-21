@@ -11,18 +11,24 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
+import { HeaderComponent } from './components/templates/header/header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FooterComponent } from './components/templates/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ResultComponent,
-    SearchComponent
+    SearchComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA00wZHRtem0XZeLy4F6P4mmUaSXN5Tkm8'
     }),
+    MatToolbarModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

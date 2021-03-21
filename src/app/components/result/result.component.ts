@@ -15,15 +15,14 @@ export class ResultComponent implements OnInit {
   subs: Subscription[] = [];
   markers: Marker[] = [];
 
-  lat = -16.678418;
-  lng = -49.809007;
-  zoom = 5;
+  lat = 26.3351;
+  lng = 17.2283;
+  zoom = 3;
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
     const { term } = history.state;
-    console.log('Dados: ' + term);
     this.term = term;
 
     if (term != null) {
