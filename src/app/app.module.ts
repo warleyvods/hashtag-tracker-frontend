@@ -17,6 +17,9 @@ import { FooterComponent } from './components/templates/footer/footer.component'
 import {MatButtonModule} from '@angular/material/button';
 import { HashtagDialogComponent } from './components/dialog/hashtag-dialog/hashtag-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     AgmCoreModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule
   ],
   providers: [],
   entryComponents: [
