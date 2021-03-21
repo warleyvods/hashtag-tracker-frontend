@@ -9,15 +9,16 @@ import {Subscription} from 'rxjs';
 })
 export class ResultComponent implements OnInit {
 
-  title = 'Foram realizadas 100 Buscas...'  ;
-
+  title;
+  // subtitle;
   term;
   subs: Subscription[] = [];
   markers: Marker[] = [];
-
+  subtitle;
   lat = 26.3351;
   lng = 17.2283;
   zoom = 3;
+  teste;
 
   constructor(private searchService: SearchService) { }
 
@@ -25,10 +26,12 @@ export class ResultComponent implements OnInit {
     const { term } = history.state;
     this.term = term;
 
+    this.title = 'Hashtag consulted: ' + term;
+
+
     if (term != null) {
       this.searchService.findHashtagsLocation(term).subscribe( (data) => {
         this.markers = data;
-        console.log(this.markers);
       });
     }
   }

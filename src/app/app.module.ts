@@ -14,6 +14,9 @@ import { AgmCoreModule } from '@agm/core';
 import { HeaderComponent } from './components/templates/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FooterComponent } from './components/templates/footer/footer.component';
+import {MatButtonModule} from '@angular/material/button';
+import { HashtagDialogComponent } from './components/dialog/hashtag-dialog/hashtag-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { FooterComponent } from './components/templates/footer/footer.component'
     ResultComponent,
     SearchComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HashtagDialogComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -36,9 +40,14 @@ import { FooterComponent } from './components/templates/footer/footer.component'
     MatIconModule,
     FormsModule,
     HttpClientModule,
-    AgmCoreModule
+    AgmCoreModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
+  entryComponents: [
+    HashtagDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

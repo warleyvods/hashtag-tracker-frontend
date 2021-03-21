@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {SearchService} from '../../service/search.service';
+import {Observable} from 'rxjs';
 
 @Component ({
   selector: 'app-home',
@@ -11,7 +12,9 @@ import {SearchService} from '../../service/search.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) {
+
+
+  constructor(private router: Router, private searchService: SearchService) {
   }
 
   ngOnInit(): void {
@@ -22,4 +25,14 @@ export class HomeComponent implements OnInit {
     console.log(search_term);
     this.router.navigateByUrl ('/results', { state: { term: search_term } }).then ();
   }
+
+  findAllHashtagsSaved(): void {
+    this.searchService.findAllHashtagsSearched().subscribe(data => {
+      console.log(data);
+    });
+  }
+
+
+
+
 }
