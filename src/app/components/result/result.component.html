@@ -10,7 +10,7 @@
 
 <mat-card>
   <div>
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [maxZoom]="8">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [minZoom]="3">
 
       <agm-marker
         *ngFor="let m of markers; let i = index"
