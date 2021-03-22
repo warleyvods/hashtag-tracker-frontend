@@ -8,6 +8,9 @@ This app can measure the performance of the campaign as well as the locations to
 - Angular 10
 - Angular Google Maps (AGM)
 
+## Live on AWS
+http://3.12.198.17/tracker/
+
 ## How to use
 
 To test this architecture you will need to have: **Node.js** installed or **Docker** with **docker-compose**.
